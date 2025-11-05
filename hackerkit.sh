@@ -2,7 +2,33 @@
 
 #script info
 author="@l1ackerronin"
-version="v3"
+version="v4"
+
+#Tools List
+
+GOLANG_LIST=(
+"notify" "tok" "gau" "anti-burl" "unfurl" "anew" "fff" "subzy" "subjack" "gron" "qsreplace"
+"cf-check" "Jeeves" "time-sql" "mrco24-error-sql" "nuclei" "cent" "afrog" "getJS" "mantra" "bxss"
+"Gxss" "kxss" "dalfox" "interactsh-client" "open-redirect" "mrco24-lfi" "naabu" "gowitness"
+"httpx" "httprobe" "gospider" "hakrawler" "waybackurls" "katana" "parameters" "gf" "web-archive"
+"otx-url" "dnsx" "puredns" "shuffledns" "subfinder" "assetfinder" "github-subdomains" "amass"
+"crobat" "mapcidr" "chaos" "gotator" "cero" "galer" "haktrails" "quickcert" "alterx" "ffuf"
+"socialhunter" "asnmap" "oam_subs" "subjs" "certinfo" "cspfinder" "waybackurlsx"
+)
+
+PYTHON_LIST=(
+"uro" "subcat" "findomain" "SecretFinder" "xnLinkFinder" "paramspider" "Sudomy"
+)
+
+LINUX_APT_LIST=(
+"python3" "python3-pip" "git" "golang" "massdns" "snapd" "knockpy" "host" "nmap" "photon"
+"arjun" "dnsutils" "dirb" "cewl" "feroxbuster" "jq" "npm" "chromium-browser" "fish" "parallel"
+"tmux" "unzip" "make" "gcc"
+)
+
+MAC_BREW_LIST=(
+"golang" "python3" "nmap" "jq" "npm" "chromium" "fish" "make" "parallel" "tmux" "unzip" "gcc" "rustscan"
+)
 
 #colors
 BLACK='\033[0;30m'
@@ -95,6 +121,7 @@ requirement_mac(){
     brew upgrade
     brew install golang
     brew install python3
+    brew install rustscan
 
     requirement_tools=(
         nmap jq npm chromium fish make parallel tmux unzip gcc
@@ -309,6 +336,44 @@ python_alternate(){
     pip3 install -r "$path/tools/Sudomy/requirements.txt" --break-system-packages
 }
 
+# Tools list
+show_tools(){
+    echo -e "${PURPLE}================== Tool Summary ==================${WHITE}"
+
+    # Golang
+    golang_count=${#GOLANG_LIST[@]}
+    echo -e "${CYAN}Golang tools (${YELLOW}$golang_count${CYAN}):${WHITE}"
+    for t in "${GOLANG_LIST[@]}"; do
+        echo -e "  ${GREEN}- $t${WHITE}"
+    done
+    echo
+
+    # Python
+    python_count=${#PYTHON_LIST[@]}
+    echo -e "${CYAN}Python tools (${YELLOW}$python_count${CYAN}):${WHITE}"
+    for t in "${PYTHON_LIST[@]}"; do
+        echo -e "  ${GREEN}- $t${WHITE}"
+    done
+    echo
+
+    # Linux APT
+    linux_count=${#LINUX_APT_LIST[@]}
+    echo -e "${CYAN}Linux (APT) packages (${YELLOW}$linux_count${CYAN}):${WHITE}"
+    for t in "${LINUX_APT_LIST[@]}"; do
+        echo -e "  ${GREEN}- $t${WHITE}"
+    done
+    echo
+
+    # Mac Brew
+    mac_count=${#MAC_BREW_LIST[@]}
+    echo -e "${CYAN}Mac (brew) packages (${YELLOW}$mac_count${CYAN}):${WHITE}"
+    for t in "${MAC_BREW_LIST[@]}"; do
+        echo -e "  ${GREEN}- $t${WHITE}"
+    done
+    echo -e "${PURPLE}==================================================${WHITE}"
+}
+
+
 #help screen
 show_help() {
     name=$(basename "$0")
@@ -323,12 +388,13 @@ show_help() {
     echo -e "\nUsage: $name [OPTIONS]"
     echo "Options:"
     echo "  --mac                     Install tools for macOS"
-    echo "  --linux                   Install Linux prerequisites with live status"
+    echo "  --linux                   Install Linux prerequisites"
     echo "  --golang                  Install all Go tools with live status"
     echo "  --python                  Install Python tools"
-    echo "  --python-alter            Install Python tools (alternate method if error)"
+    echo "  --python_alternate        Install Python tools (alternate method if error)"
     echo "  --update [tool1,tool2,...]  Update specific Go tools from a comma-separated list."
     echo "                              Example: $name --update nuclei,subfinder,httpx"
+    echo "  --tools                   Show Tools List"
     echo "  --help                    Show this help screen"
     exit 1
 }
@@ -345,7 +411,8 @@ while [[ $# -gt 0 ]]; do
         --linux) requirement_linux ;;
         --golang) golang_tools ;;
         --python) python_tools ;;
-        --python-alter) python_alternate ;;
+        --python_alternate) python_alternate ;;
+        --tools) show_tools ;;              # <-- new option
         -i)
             if [[ -z "$2" || "$2" == --* ]]; then
                 echo -e "${RED}Error: --update flag requires a comma-separated list of tool names.${WHITE}" >&2
