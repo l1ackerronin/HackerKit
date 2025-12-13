@@ -112,6 +112,8 @@ declare -A GOLANG_TOOLS=(
     ["certinfo"]="github.com/rix4uni/certinfo"
     ["cspfinder"]="github.com/rix4uni/cspfinder"
     ["waybackurlsx"]="github.com/rix4uni/waybackurlsx@latest"
+    ["portmap"]="github.com/rix4uni/portmap@latest"
+    ["gungnir"]="github.com/g0ldencybersec/gungnir/cmd/gungnir@latest"
 )
 
 
