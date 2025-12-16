@@ -116,7 +116,7 @@ declare -A GOLANG_TOOLS=(
     ["gungnir"]="github.com/g0ldencybersec/gungnir/cmd/gungnir@latest"
     ["wordcount"]="github.com/rix4uni/wordcount@latest"
     ["vulntechfinder"]="github.com/rix4uni/vulntechfinder@latest"
-    ["techfinder"]="https://github.com/rix4uni/techfinder@latest"
+    ["techfinder"]="github.com/rix4uni/techfinder@latest"
 )
 
 
