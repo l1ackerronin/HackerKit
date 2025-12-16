@@ -115,6 +115,7 @@ declare -A GOLANG_TOOLS=(
     ["portmap"]="github.com/rix4uni/portmap@latest"
     ["gungnir"]="github.com/g0ldencybersec/gungnir/cmd/gungnir@latest"
     ["wordcount"]="github.com/rix4uni/wordcount@latest"
+    ["vulntechfinder"]="github.com/rix4uni/vulntechfinder@latest"
 )
 
 
