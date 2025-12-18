@@ -111,13 +111,13 @@ declare -A GOLANG_TOOLS=(
     ["subjs"]="github.com/lc/subjs"
     ["certinfo"]="github.com/rix4uni/certinfo"
     ["cspfinder"]="github.com/rix4uni/cspfinder"
-    ["waybackurlsx"]="github.com/rix4uni/waybackurlsx@latest"
-    ["portmap"]="github.com/rix4uni/portmap@latest"
-    ["gungnir"]="github.com/g0ldencybersec/gungnir/cmd/gungnir@latest"
+    ["waybackurlsx"]="github.com/rix4uni/waybackurlsx"
+    ["portmap"]="github.com/rix4uni/portmap"
+    ["gungnir"]="github.com/g0ldencybersec/gungnir/cmd/gungnir"
     ["wordcount"]="github.com/rix4uni/wordcount@latest"
-    ["vulntechfinder"]="github.com/rix4uni/vulntechfinder@latest"
-    ["techfinder"]="github.com/rix4uni/techfinder@latest"
-    ["smap"]="github.com/s0md3v/smap/cmd/smap@latest"
+    ["vulntechfinder"]="github.com/rix4uni/vulntechfinder"
+    ["techfinder"]="github.com/rix4uni/techfinder"
+    ["smap"]="github.com/s0md3v/smap/cmd/smap"
 )
 
 
