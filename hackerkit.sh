@@ -153,6 +153,7 @@ requirement_linux(){
     sudo apt update
     echo -e "${info} ${CYAN}Upgrading installed packages...${WHITE}"
     sudo apt upgrade -y
+    libpcap-dev
     
     # Essential build tools and libraries
     sudo apt install -y libldns-dev build-essential
